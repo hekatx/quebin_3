@@ -1,0 +1,39 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import BlogTable from '../components/BlogTable.astro';
+import Footer from '../components/Footer.astro';
+import { Paragraph } from '../components/prose/Paragraph'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Command } from '../components/Command';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="grid grid-cols-2 gap-x-6 py-6">
+      <figure>
+        <img
+          class="row-span-2"
+          src="https://i.pinimg.com/564x/b5/44/6f/b5446ffc126cd83ed86c7580d8108078.jpg"
+          alt="A self portrait of the site's owner, painted digitally in a traditional style"
+        />
+        <figcaption class="text-sm text-slate-600 mt-2">Figure 1 - Latest self-portrait</figcaption>
+      </figure>
+      <div>
+        <p class="animate-appear" style="--stagger: 0;">
+          Drawn to the nuances of user interaction, passionate about building interfaces
+          that excel in both form and function.
+        </p>
+        <p class="text-balance animate-appear" style="--stagger: 1;">
+          Currently crafting interfaces at <a href="https://www.capgemini.com/" target="_blank">Capgemini</a>
+        </p>
+        <BlogTable />
+      </div>
+    </main>
+	</body>
+</html>
