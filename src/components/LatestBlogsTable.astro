@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import { INTL_SHORT } from '../consts';
+
+const allPosts = await getCollection('blog');
+const latestPosts = allPosts.slice(0, 5);
+
+const getDate = (post) => post.data.pubDate.getFullYear();
+const posts = latestPosts;
+---
+<div class="group mt-3">
+  <table class="blog-table" style="--stagger: 3;">
+    <thead>
+      <tr>
+        <th colspan="2">Latest posts</th>
+      </tr>
+    </thead>
+    <tbody>
+      {posts.map(post => (
+        <tr>
+          <td>
+            <a href={`/blog/${post.slug}`}>
+              {post.data.title}
+            </a>
+          </td>
+          <td class="text-end">
+            <a href={`/blog/${post.slug}`}>
+              {INTL_SHORT.format(post.data.pubDate)}
+            </a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

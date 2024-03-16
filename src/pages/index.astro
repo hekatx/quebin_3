@@ -1,9 +1,9 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import BlogTable from '../components/BlogTable.astro';
+import LatestBlogsTable from '../components/LatestBlogsTable.astro';
 import Footer from '../components/Footer.astro';
-import { Paragraph } from '../components/prose/Paragraph'
+import { Paragraph } from '../components/prose/Paragraph';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Command } from '../components/Command';
 ---
@@ -15,24 +15,26 @@ import { Command } from '../components/Command';
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main class="grid grid-cols-2 gap-x-6 py-6">
-      <figure>
+		<main class="grid sm:grid-cols-2 grid-cols-1 gap-x-6 py-6 gap-y-6">
+      <figure class="row-span-auto">
         <img
           class="row-span-2"
           src="https://i.pinimg.com/564x/b5/44/6f/b5446ffc126cd83ed86c7580d8108078.jpg"
-          alt="A self portrait of the site's owner, painted digitally in a traditional style"
+          alt="A self portrait of the site's owner (Kevin), painted digitally in a traditional style"
         />
-        <figcaption class="text-sm text-slate-600 mt-2">Figure 1 - Latest self-portrait</figcaption>
+        <figcaption class="text-sm text-slate-600 mt-2">Latest self-portrait</figcaption>
       </figure>
-      <div>
+      <div class="row-start-1 row-end-2 sm:row-span-auto">
         <p class="animate-appear" style="--stagger: 0;">
-          Drawn to the nuances of user interaction, passionate about building interfaces
-          that excel in both form and function.
+          Hola! I'm Kevin Gonzalez, currently working as Software Engineer at <a href="https://www.capgemini.com/" target="_blank">Capgemini</a>
         </p>
-        <p class="text-balance animate-appear" style="--stagger: 1;">
-          Currently crafting interfaces at <a href="https://www.capgemini.com/" target="_blank">Capgemini</a>
+        <p class="animate-appear" style="--stagger: 1;">
+          My work is focused on crafting interfaces that excel in both form and function and building reliable systems
         </p>
-        <BlogTable />
+        <p class="animate-appear" style="--stagger: 2;">
+          Usually spend my days writing and painting
+        </p>
+        <LatestBlogsTable />
       </div>
     </main>
 	</body>

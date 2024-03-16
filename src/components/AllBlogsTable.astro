@@ -12,22 +12,27 @@ const years = Object.keys(grouped).sort((yearA, yearB) => yearB - yearA);
   {years.map(year => {
     const posts = grouped[year];
     return (
-      <table class="border-collapse text-base font-normal animate-appear first:mt-0 mt-3" style="--stagger: 2;">
+      <table class="blog-table">
         <thead>
           <tr>
-            <th class="border-b border-gray-500 text-end !font-light" colspan="2">{year}</th>
+            <th colspan="3">{year}</th>
           </tr>
         </thead>
-        <tbody class={ `peer/${year}` }>
+        <tbody>
           {posts.map(post => (
-            <tr class="border-b text-black group-hover:text-slate-500 hover:!text-black transition-colors">
-              <td class="p-0">
-                <a href={`/blog/${post.slug}`} class="w-full block text-inherit">
+            <tr>
+              <td class="w-[20ch]">
+                <a href={`/blog/${post.slug}`}>
                   {post.data.title}
                 </a>
               </td>
-              <td class="p-0 text-end">
-                <a href={`/blog/${post.slug}`} class="w-full block text-inherit">
+              <td>
+                <a href={`/blog/${post.slug}`}>
+                  {post.data.description}
+                </a>
+              </td>
+              <td class="text-end">
+                <a href={`/blog/${post.slug}`}>
                   {INTL_SHORT.format(post.data.pubDate)}
                 </a>
               </td>
