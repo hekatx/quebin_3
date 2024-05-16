@@ -1,0 +1,23 @@
+---
+import '../styles/blurdown.css';
+const { height, width, placeholder, alt, src } = Astro.props;
+---
+<div class="img img--blur-down rounded-md" style={`--img-aspect-ratio: ${(height / width) * 100 }%;`}>
+  <div class="img__placeholder" style={placeholder} />
+  <img
+    class="img__element"
+    alt={alt}
+    src={src}
+    data-blurdown
+  />
+</div>
+
+<script>
+let isLoaded = false;
+const image = document.querySelector("[data-blurdown]");
+const container = document.querySelector(".img");
+if (image.complete) container.classList.add("is-loaded");
+image.addEventListener("load", () => {
+  container.classList.add("is-loaded");
+});
+</script>

@@ -8,11 +8,11 @@ const latestPosts = allPosts.slice(0, 5);
 const getDate = (post) => post.data.pubDate.getFullYear();
 const posts = latestPosts;
 ---
-<div class="group mt-3">
+<div class="group mt-8">
   <table class="blog-table" style="--stagger: 3;">
     <thead>
       <tr>
-        <th colspan="2">Latest posts</th>
+        <th colspan="2" class="!text-start">Latest posts</th>
       </tr>
     </thead>
     <tbody>
