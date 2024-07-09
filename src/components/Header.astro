@@ -1,16 +1,19 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { CommandMenu } from './Command';
-import { SITE_TITLE } from '../consts';
+// import { CommandMenu } from './Command';
 ---
 
 <header>
 	<nav class="py-6 flex items-center">
     <a
-      class="font-bold text-sm"
+      class="font-bold text-sm relative"
       href="/"
     >
-      (quebin)
+    <span class="peer">
+      kevin gonzalez
+    </span>
+      <span class="peer-hover:opacity-100 group-focus-within:opacity-100 opacity-0 absolute block transition-opacity text-xs">
+        (quebin)
+      </span>
       <span class="sr-only">Home</span>
     </a>
     <div class="flex items-center justify-between gap-6 ml-auto">
@@ -27,6 +30,8 @@ import { SITE_TITLE } from '../consts';
         Experiments
       </a>
     </div>
-    <CommandMenu client:load />
+    {
+    // <CommandMenu client:load />
+    }
   </nav>
 </header>

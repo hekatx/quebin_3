@@ -272,6 +272,16 @@ hr {
   }
 }
 
+.blog-table:focus-within tbody tr,
+.blog-table:hover tbody tr {
+  color: #64748b;
+}
+
+.blog-table tbody tr:hover,
+.blog-table tbody tr:focus-within {
+  color: black;
+}
+
 .blog-table {
   @apply animate-appear first:mt-0;
   border: collapse;
@@ -284,7 +294,7 @@ hr {
   }
 
   & tbody tr {
-    @apply border-b text-black group-hover:text-slate-500 hover:!text-black transition-colors;
+    @apply border-b text-black transition-colors;
   }
 
   & tbody tr:last-child {
@@ -292,7 +302,7 @@ hr {
   }
 
   & tr > td {
-    @apply p-0; 
+    @apply p-0 py-1; 
   }
 
   & tr td a {
@@ -822,14 +832,3 @@ hr {
 	}
 }
 
-svg {
-}
-
-.front {
-  transition: transform 0.25s;
-  transform-origin: center center;
-}
-
-.blog-link:hover .front {
-  transform: translateY(-10px) rotate(-5deg);
-}

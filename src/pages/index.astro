@@ -2,26 +2,17 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import LatestBlogsTable from '../components/LatestBlogsTable.astro';
-import Footer from '../components/Footer.astro';
-import { Paragraph } from '../components/prose/Paragraph';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { Command } from '../components/Command';
 import BlurDownImage from '../components/BlurDownImage.astro';
 
-const blurImgSrc =
+const heroImgSrc =
 	'https://cdn.jsdelivr.net/gh/joe-bell/blur-down@3d7b9d2a6e3d2d5d2bffc8dffaf095bef7d3c749/examples/03-blur-comparison/src/assets/blur.jpg';
 
-const blurImg = {
+const heroBlurImgSrc = {
 	alt: "Damon Albarn of the band 'Blur'",
-	src: blurImgSrc,
+	src: heroImgSrc,
 	height: 1338,
 	width: 2373,
-	// Note: In production, you should generate your placeholder on the
-	// server-side or at build time (e.g. via https://plaiceholder.co)
-	//
-	// In this example we'll use https://plaiceholder.co's unique CSS-only
-	// placeholder approach, but these transitions will work just the same with
-	// base64, blurhash and more…
 	placeholder: {
 		backgroundImage:
 			'linear-gradient(90deg, rgb(62,38,99) 25%,rgb(48,23,55) 25% 50%,rgb(60,32,51) 50% 75%,rgb(12,5,27) 75% 100%),linear-gradient(90deg, rgb(46,24,75) 25%,rgb(49,23,40) 25% 50%,rgb(41,20,25) 50% 75%,rgb(11,7,17) 75% 100%)',
@@ -39,30 +30,35 @@ const blurImg = {
 	</head>
 	<body>
     <Header />
-		<main class="grid sm:grid-cols-2 grid-cols-1 gap-x-6 py-6 gap-y-6">
-      <figure class="row-span-auto">
-        <BlurDownImage
-          class="row-span-2"
-          placeholder={blurImg.placeholder}
-          height={blurImg.height}
-          width={blurImg.width}
-          src={blurImgSrc}
-          alt="A self portrait of the site's owner (Kevin), painted digitally in a traditional style"
-        />
-        <figcaption class="text-sm text-slate-600 mt-2">Latest self-portrait</figcaption>
-      </figure>
-      <div class="row-start-1 row-end-2 sm:row-span-auto">
-        <p class="animate-appear" style="--stagger: 0;">
-          Hola! I'm Kevin Gonzalez, currently working as Software Engineer at <a class="link" href="https://www.capgemini.com/" target="_blank">Capgemini</a>
-        </p>
-        <p class="animate-appear" style="--stagger: 1;">
-          My work is focused on crafting interfaces that excel in both form and function and building reliable systems
-        </p>
-        <p class="animate-appear" style="--stagger: 2;">
-          Usually spend my days writing and painting
-        </p>
-        <LatestBlogsTable />
+		<main>
+      <div class="grid sm:grid-cols-2 grid-cols-1 gap-x-6 py-6 gap-y-6">
+        <div class="row-start-2 row-end-3 sm:row-start-1 sm:row-end-2 sm:row-span-auto">
+          <p class="animate-appear" style="--stagger: 0;">
+            Currently working as Software Engineer at
+            <a class="link" href="https://www.capgemini.com/"
+            target="_blank">Capgemini</a>
+          </p>
+          <p class="animate-appear" style="--stagger: 1;">
+            My work is focused on crafting interfaces that excel in both form
+            and function
+          </p>
+          <p class="animate-appear" style="--stagger: 2;">
+            When not at work, I enjoy my time painting, reading and sometimes
+            I like writing about my experience programming and useful stuff I've learned 
+          </p>
+        </div>
+        <figure>
+          <BlurDownImage
+            placeholder={heroBlurImgSrc.placeholder}
+            height={heroBlurImgSrc.height}
+            width={heroBlurImgSrc.width}
+            src={heroImgSrc}
+            alt="A self portrait of the site's owner (Kevin), painted digitally in a traditional style"
+          />
+          <figcaption class="text-sm text-slate-600 mt-2">Latest self-portrait</figcaption>
+        </figure>
       </div>
+      <LatestBlogsTable  />
     </main>
 	</body>
 </html>

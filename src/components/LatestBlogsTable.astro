@@ -1,18 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
-import { INTL_SHORT } from '../consts';
+import { INTL_SHORT_DATE } from '../consts';
 
 const allPosts = await getCollection('blog');
-const latestPosts = allPosts.slice(0, 5);
+const latestPosts = allPosts.slice(0, 3);
 
 const getDate = (post) => post.data.pubDate.getFullYear();
 const posts = latestPosts;
 ---
-<div class="group mt-8">
+<div class="group col-span-2">
   <table class="blog-table" style="--stagger: 3;">
     <thead>
       <tr>
-        <th colspan="2" class="!text-start">Latest posts</th>
+        <th colspan="2" class="!text-start">Posts</th>
       </tr>
     </thead>
     <tbody>
@@ -24,8 +24,8 @@ const posts = latestPosts;
             </a>
           </td>
           <td class="text-end">
-            <a href={`/blog/${post.slug}`}>
-              {INTL_SHORT.format(post.data.pubDate)}
+            <a href={`/blog/${post.slug}`} tabindex="-1">
+              {INTL_SHORT_DATE.format(post.data.pubDate)}
             </a>
           </td>
         </tr>
