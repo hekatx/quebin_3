@@ -13,11 +13,12 @@ const { height, width, placeholder, alt, src } = Astro.props;
 </div>
 
 <script>
-let isLoaded = false;
-const image = document.querySelector("[data-blurdown]");
+const image = document.querySelector("img[data-blurdown]") as HTMLImageElement | null;
 const container = document.querySelector(".img");
-if (image.complete) container.classList.add("is-loaded");
-image.addEventListener("load", () => {
-  container.classList.add("is-loaded");
-});
+if (image && container) {
+  if (image.complete && container) container.classList.add("is-loaded");
+  image.addEventListener("load", () => {
+    container.classList.add("is-loaded");
+  });
+}
 </script>
