@@ -9,7 +9,7 @@ import BlurDownImage from '../components/BlurDownImage.astro';
 import { getPlaiceholder } from 'plaiceholder';
 
 async function getBlurImg(src: string) {
-	const buffer = await fs.readFile(new URL(import.meta.env.VERCEL ? `../..${src}` : `../../..${src}`, import.meta.url));
+	const buffer = await fs.readFile(new URL(`../../..${src}`, import.meta.url));
 
 	return await getPlaiceholder(buffer);
 }
