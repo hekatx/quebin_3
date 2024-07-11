@@ -9,12 +9,12 @@ import BlurDownImage from '../components/BlurDownImage.astro';
 import { getPlaiceholder } from 'plaiceholder';
 
 async function getBlurImg(src: string) {
-	const buffer = await fs.readFile(new URL(`../../..${src}`, import.meta.url));
+	const buffer = await fs.readFile(new URL(import.meta.env.VERCEL ? `../..${src}` : `../../public/${src}`, import.meta.url));
 
 	return await getPlaiceholder(buffer);
 }
 
-const heroImgSrc = '../../public/quebin_profile_2.png';
+const heroImgSrc = '/quebin_profile_2.png';
 
 const heroBlurImgSrc = await getBlurImg(heroImgSrc);
 ---
