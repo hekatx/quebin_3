@@ -26,7 +26,7 @@ const heroBlurImgSrc = await getBlurImg(heroImgSrc);
 	</head>
 	<body>
 		<main class="pt-32">
-      <h1 class="text-xl text-balance animate-appear" style="--stagger: 1">
+      <h1 class="text-xl sm:text-balance animate-appear" style="--stagger: 1">
         <span class="font-medium">
           Kevin Gonzalez.
         </span>
@@ -37,7 +37,7 @@ const heroBlurImgSrc = await getBlurImg(heroImgSrc);
             target="_blank">
               Capgemini&spades;
           </Link>
-          <br>
+          <br class="sm:block hidden">
           crafting interfaces that excel in both form and function
         </span>
       </h1>
@@ -51,18 +51,18 @@ const heroBlurImgSrc = await getBlurImg(heroImgSrc);
           />
           <figcaption class="text-sm text-slate-600 mt-2">self-portrait, painted by yours truly</figcaption>
         </figure>
-      <div class="grid sm:grid-cols-2 gap-x-20 gap-y-12 items-start">
+      <div class="grid sm:grid-cols-2 gap-x-20 gap-y-8 items-start">
         <PastWorkTable title="Past work" stagger={4} />
         <LatestBlogsTable title="Writing" stagger={4} />
       </div>
-      <h2 class="text-lg font-medium animate-appear" style="--stagger: 5">Now</h2>
+      <h2 class="text-lg font-medium animate-appear mt-8" style="--stagger: 5">Now</h2>
       <p class="animate-appear" style="--stagger: 6">
         Leaning into the foundations of web systems, from networking intricacies to
         the browser inner workings. Guided by Feynman's wisdom: "What I cannot create, I do not
         understand.", each line of code is a step towards deeper comprehension.
       </p>
 
-      <h2 class="text-lg font-medium animate-appear my-6" style="--stagger: 7">Connect</h2>
+      <h2 class="text-lg font-medium animate-appear my-8" style="--stagger: 7">Connect</h2>
       <div
         class="flex gap-3 text-sm animate-appear"
         style="--stagger: 8"
@@ -71,7 +71,7 @@ const heroBlurImgSrc = await getBlurImg(heroImgSrc);
         <Link href="https://www.github.com/hekatx">Github</Link>
       </div>
     </main>
-    <footer class="w-[640px] border-t flex items-center justify-between mx-auto mt-12 py-3 text-xs animate-appear text-slate-600" style="--stagger: 7">
+    <footer class="w-[640px] max-w-[calc(100%_-_2em)] border-t flex items-center justify-between mx-auto mt-12 py-3 text-xs animate-appear text-slate-600" style="--stagger: 7">
       <span class="block">
         What I cannot create, I do not understand
       </span>

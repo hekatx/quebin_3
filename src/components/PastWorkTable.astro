@@ -4,17 +4,18 @@ import Link from '../components/Link.astro';
 const jobs = [
 	{
 		company: 'Capgemini',
-    url: 'https://www.capgemini.com',
+		url: 'https://www.capgemini.com',
 		position: 'Software Engineer',
 		time: '2022 - Today',
-		description: 'Lead the frontend rewrite for Coca-Cola\'s ecommerce ecosystem Juntos+',
+		description: "Lead the frontend rewrite for Coca-Cola's ecommerce ecosystem Juntos+",
 	},
 	{
 		company: 'Octopy',
-    url: 'https://www.octopy.com',
+		url: 'https://www.octopy.com',
 		position: 'Frontend Engineer',
 		time: '2020 - 2022',
-    description: 'Support and maintainment of legacy projects, developed internal libraries that powered main features of several projects',
+		description:
+			'Support and maintainment of legacy projects, developed internal libraries that powered main features of several projects',
 	},
 ];
 const { title, stagger } = Astro.props;
@@ -31,7 +32,7 @@ const { title, stagger } = Astro.props;
       <hr>
       <time class="w-max text-sm">{job.time}</time>
     </div>
-    <p class="text-sm mb-6 text-slate-600">
+    <p class="text-sm [&:not(:last-child)]:mb-6 text-slate-600">
       <span>{job.position}</span>
        · 
       {job.description}
