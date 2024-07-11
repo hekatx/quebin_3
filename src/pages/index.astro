@@ -1,26 +1,22 @@
 ---
+import fs from 'node:fs/promises';
+import Link from '../components/Link.astro';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import LatestBlogsTable from '../components/LatestBlogsTable.astro';
+import PastWorkTable from '../components/PastWorkTable.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import BlurDownImage from '../components/BlurDownImage.astro';
+import { getPlaiceholder } from 'plaiceholder';
 
-const heroImgSrc =
-	'https://cdn.jsdelivr.net/gh/joe-bell/blur-down@3d7b9d2a6e3d2d5d2bffc8dffaf095bef7d3c749/examples/03-blur-comparison/src/assets/blur.jpg';
+async function getBlurImg(src: string) {
+	const buffer = await fs.readFile(new URL(import.meta.env.VERCEL ? `../..${src}` : `../../..${src}`, import.meta.url));
 
-const heroBlurImgSrc = {
-	alt: "Damon Albarn of the band 'Blur'",
-	src: heroImgSrc,
-	height: 1338,
-	width: 2373,
-	placeholder: {
-		backgroundImage:
-			'linear-gradient(90deg, rgb(62,38,99) 25%,rgb(48,23,55) 25% 50%,rgb(60,32,51) 50% 75%,rgb(12,5,27) 75% 100%),linear-gradient(90deg, rgb(46,24,75) 25%,rgb(49,23,40) 25% 50%,rgb(41,20,25) 50% 75%,rgb(11,7,17) 75% 100%)',
-		backgroundPosition: '0 0 ,0 100%',
-		backgroundSize: '100% 50%',
-		backgroundRepeat: 'no-repeat',
-	},
-};
+	return await getPlaiceholder(buffer);
+}
+
+const heroImgSrc = '../../public/quebin_profile_2.png';
+
+const heroBlurImgSrc = await getBlurImg(heroImgSrc);
 ---
 
 <!doctype html>
@@ -29,36 +25,57 @@ const heroBlurImgSrc = {
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-    <Header />
-		<main>
-      <div class="grid sm:grid-cols-2 grid-cols-1 gap-x-6 py-6 gap-y-6">
-        <div class="row-start-2 row-end-3 sm:row-start-1 sm:row-end-2 sm:row-span-auto">
-          <p class="animate-appear" style="--stagger: 0;">
-            Currently working as Software Engineer at
-            <a class="link" href="https://www.capgemini.com/"
-            target="_blank">Capgemini</a>
-          </p>
-          <p class="animate-appear" style="--stagger: 1;">
-            My work is focused on crafting interfaces that excel in both form
-            and function
-          </p>
-          <p class="animate-appear" style="--stagger: 2;">
-            When not at work, I enjoy my time painting, reading and sometimes
-            I like writing about my experience programming and useful stuff I've learned 
-          </p>
-        </div>
-        <figure>
+		<main class="pt-32">
+      <h1 class="text-xl text-balance animate-appear" style="--stagger: 1">
+        <span class="font-medium">
+          Kevin Gonzalez.
+        </span>
+        <span class="text-xl font-normal text-slate-600 leading-6">
+          Working as software engineer at
+          <Link 
+            href="https://www.capgemini.com/"
+            target="_blank">
+              Capgemini&spades;
+          </Link>
+          <br>
+          crafting interfaces that excel in both form and function
+        </span>
+      </h1>
+        <figure class="my-6 animate-appear" style="--stagger: 3">
           <BlurDownImage
-            placeholder={heroBlurImgSrc.placeholder}
-            height={heroBlurImgSrc.height}
-            width={heroBlurImgSrc.width}
+            placeholder={heroBlurImgSrc.css}
+            height={heroBlurImgSrc.metadata.height}
+            width={heroBlurImgSrc.metadata.width}
             src={heroImgSrc}
             alt="A self portrait of the site's owner (Kevin), painted digitally in a traditional style"
           />
-          <figcaption class="text-sm text-slate-600 mt-2">Latest self-portrait</figcaption>
+          <figcaption class="text-sm text-slate-600 mt-2">self-portrait, painted by yours truly</figcaption>
         </figure>
+      <div class="grid sm:grid-cols-2 gap-x-20 gap-y-12 items-start">
+        <PastWorkTable title="Past work" stagger={4} />
+        <LatestBlogsTable title="Writing" stagger={4} />
       </div>
-      <LatestBlogsTable  />
+      <h2 class="text-lg font-medium animate-appear" style="--stagger: 5">Now</h2>
+      <p class="animate-appear" style="--stagger: 6">
+        Leaning into the foundations of web systems, from networking intricacies to
+        the browser inner workings. Guided by Feynman's wisdom: "What I cannot create, I do not
+        understand.", each line of code is a step towards deeper comprehension.
+      </p>
+
+      <h2 class="text-lg font-medium animate-appear my-6" style="--stagger: 7">Connect</h2>
+      <div
+        class="flex gap-3 text-sm animate-appear"
+        style="--stagger: 8"
+      >
+        <Link href="https://www.x.com/hekatx">Twitter</Link>
+        <Link href="https://www.github.com/hekatx">Github</Link>
+      </div>
     </main>
+    <footer class="w-[640px] border-t flex items-center justify-between mx-auto mt-12 py-3 text-xs animate-appear text-slate-600" style="--stagger: 7">
+      <span class="block">
+        What I cannot create, I do not understand
+      </span>
+      <time>2024</time>
+    </footer>
 	</body>
 </html>

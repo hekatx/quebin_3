@@ -3,33 +3,34 @@ import { getCollection } from 'astro:content';
 import { INTL_SHORT_DATE } from '../consts';
 
 const allPosts = await getCollection('blog');
-const latestPosts = allPosts.slice(0, 3);
+const latestPosts = allPosts;
 
-const getDate = (post) => post.data.pubDate.getFullYear();
-const posts = latestPosts;
+const { title, stagger } = Astro.props;
 ---
-<div class="group col-span-2">
-  <table class="blog-table" style="--stagger: 3;">
-    <thead>
+<table class="blog-table group" style={ `--stagger: ${stagger}; `}>
+  <thead>
+    <tr>
+      <th colspan="2" class="!text-start">
+        <span class="text-lg font-medium">
+          {title}
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {latestPosts.map(post => (
       <tr>
-        <th colspan="2" class="!text-start">Posts</th>
+        <td>
+          <a href={`/blog/${post.slug}`}>
+            {post.data.title}
+          </a>
+        </td>
+        <td class="text-end">
+          <a href={`/blog/${post.slug}`} tabindex="-1">
+            {INTL_SHORT_DATE.format(post.data.pubDate)}
+          </a>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {posts.map(post => (
-        <tr>
-          <td>
-            <a href={`/blog/${post.slug}`}>
-              {post.data.title}
-            </a>
-          </td>
-          <td class="text-end">
-            <a href={`/blog/${post.slug}`} tabindex="-1">
-              {INTL_SHORT_DATE.format(post.data.pubDate)}
-            </a>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+    ))}
+  </tbody>
+</table>

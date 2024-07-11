@@ -1,0 +1,40 @@
+---
+import Link from '../components/Link.astro';
+
+const jobs = [
+	{
+		company: 'Capgemini',
+    url: 'https://www.capgemini.com',
+		position: 'Software Engineer',
+		time: '2022 - Today',
+		description: 'Lead the frontend rewrite for Coca-Cola\'s ecommerce ecosystem Juntos+',
+	},
+	{
+		company: 'Octopy',
+    url: 'https://www.octopy.com',
+		position: 'Frontend Engineer',
+		time: '2020 - 2022',
+    description: 'Support and maintainment of legacy projects, developed internal libraries that powered main features of several projects',
+	},
+];
+const { title, stagger } = Astro.props;
+---
+<div style={ `--stagger: ${stagger}; `} class="self-start animate-appear">
+  <h2 class="text-lg font-medium">
+    {title}
+  </h2>
+  {jobs.map(job => (
+    <div class="text-base grid grid-cols-[max-content_1fr_max-content] gap-3 items-center">
+      <Link href={job.url} target="_blank">
+        {job.company}
+      </Link>
+      <hr>
+      <time class="w-max text-sm">{job.time}</time>
+    </div>
+    <p class="text-sm mb-6 text-slate-600">
+      <span>{job.position}</span>
+       · 
+      {job.description}
+    </p>
+  ))}
+</div>

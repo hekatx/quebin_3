@@ -62,22 +62,41 @@
   --blue12: hsl(211, 100%, 15%);
 
 }
+
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
+	font-family: 'Inter';
+	src: url('/fonts/Inter-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
+
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
+	font-family: 'Inter';
+	src: url('/fonts/Inter-ExtraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('/fonts/Inter-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('/fonts/Inter-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
+
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'Inter', serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -90,7 +109,7 @@ body {
 	line-height: 1.7;
 }
 nav, main {
-	width: 720px;
+	width: 640px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 }
@@ -125,7 +144,7 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+  @apply text-slate-900;
 }
 
 p {
@@ -287,18 +306,13 @@ hr {
   border: collapse;
   font-size: 1rem;
   font-weight: 400;
-  margin-top: 1rem;
 
   & th {
-    @apply border-b border-gray-500 text-end !font-light;
+    @apply text-end !font-light;
   }
 
   & tbody tr {
-    @apply border-b text-black transition-colors;
-  }
-
-  & tbody tr:last-child {
-    border: none;
+    @apply text-black transition-colors;
   }
 
   & tr > td {
@@ -311,7 +325,12 @@ hr {
 }
 
 .link {
-  @apply underline underline-offset-4;
+  @apply underline underline-offset-4 decoration-slate-300;
+}
+
+.link:hover,
+.link:focus {
+  @apply decoration-current;
 }
 
 /*
