@@ -4,7 +4,7 @@ const ANIMATION_CONFIG = {
 	'--blur': '42px',
 	'--scale': '1.2',
 	'--duration': '1.2s',
-} as unknown as React.CSSProperties;
+};
 
 const merge = (...args: string[]) => args.join(' ');
 

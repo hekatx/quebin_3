@@ -3,9 +3,9 @@
 
 export const SITE_TITLE = 'Kevin Gonzalez';
 export const SITE_DESCRIPTION =
-  'Exploring the intersection of aesthetics and functionality. Pursuing innovatives way to interact and interface with computers.';
+	'Exploring the intersection of aesthetics and functionality. Pursuing innovatives way to interact and interface with computers.';
 
 export const INTL_SHORT_DATE = new Intl.DateTimeFormat('en', {
-  day: 'numeric',
-  month: 'numeric',
+	day: 'numeric',
+	month: 'numeric',
 });
