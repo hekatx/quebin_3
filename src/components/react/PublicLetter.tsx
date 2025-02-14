@@ -246,12 +246,9 @@ function CardOne({ className, step }: { className: string; step: string }) {
 						className='flex flex-col justify-between h-full'
 					>
 						<motion.p className='card-content !text-2xs sm:!text-sm !text-stone-400 !font-normal !p-0'>
-							Para: Mich, mi morrita, mi amor, mi todo
+							Para: whoever is looking at this
 						</motion.p>
-						<motion.p className='card-content !p-0'>
-							Hola! Recientemente me di cuenta que podrían pasar mil San Valentines, pero ninguno sería especial si no fuera
-							contigo.
-						</motion.p>
+						<motion.p className='card-content !p-0'>Hola, feliz san valentin visitante extraño!</motion.p>
 						<motion.p className='card-content !text-2xs sm:!text-base pt-0 !text-stone-400 !p-0'>
 							(Presiona sobre la carta de nuevo para leer más)
 						</motion.p>
@@ -266,9 +263,9 @@ function CardOne({ className, step }: { className: string; step: string }) {
 						exit='hidden'
 						variants={presenceVariants}
 					>
-						Siento que esta carta debería ser muy fácil de escribir por lo mucho que te amo pero es difícil escoger las palabras
-						correctas para decirte que te amo aún cuando tenemos muchas formas de decirlo incluso sin hablar, sin vernos, sin
-						siquiera tocarnos, sé que siempre nos decimos te amo
+						Phasellus et tristique justo, in posuere ante. Vivamus hendrerit ante turpis, sit amet sollicitudin magna
+						scelerisque porta. Curabitur tincidunt, libero in euismod venenatis, lectus dolor cursus massa, a volutpat ante
+						velit et nisi.
 					</motion.p>
 				)}
 
@@ -281,9 +278,9 @@ function CardOne({ className, step }: { className: string; step: string }) {
 						exit='hidden'
 						variants={presenceVariants}
 					>
-						Y es raro que no logre encontrar las palabras porque siempre quiero decírtelo todo y que luego me escuches y me
-						mires con esos ojos que me llenan de vida cuando los veo. No quiero sonar como que soy dependiente pero no me pienso
-						en otro lugar que no sea a tu lado.
+						Mauris scelerisque consectetur sem, eget suscipit est condimentum sed. Vestibulum lacinia lacus odio, a semper ante
+						dictum et. Fusce non auctor leo, eu vestibulum orci. Etiam at arcu ligula. Quisque mollis, arcu iaculis dignissim
+						fermentum,
 					</motion.p>
 				)}
 
@@ -296,9 +293,8 @@ function CardOne({ className, step }: { className: string; step: string }) {
 						exit='hidden'
 						variants={presenceVariants}
 					>
-						Realmente no recuerdo, desde hace años, algun día en el que no haya pensado en ti, en que no me haya reído y pensado
-						"Michelle tiene que ver esto". Esta de más decir que me encanta compartir todo contigo, las risas, el llanto, la
-						anticipación, el tacto,
+						Vestibulum eleifend malesuada nunc tincidunt eleifend. Vestibulum mattis urna nec ipsum auctor, et tincidunt nibh
+						commodo. Duis id rutrum massa, efficitur porta orci. Nam vel odio ut augue porta ullamcorper.
 					</motion.p>
 				)}
 
@@ -311,9 +307,8 @@ function CardOne({ className, step }: { className: string; step: string }) {
 						exit='hidden'
 						variants={presenceVariants}
 					>
-						la emoción de vernos después de un tiempo, las miradas llenas de deseo. Te amo muchísimo y no veo forma en que mi
-						amor por ti se termine, lo veo crecer todos los días. Cuidamos muy bien de nuestra relación y lo aprecio muchísimo.
-						Te amo
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis suscipit odio. Nunc nec odio non dui condimentum
+						malesuada eget vitae elit. Donec ex sem, tristique nec risus eu, cursus imperdiet est.
 					</motion.p>
 				)}
 
