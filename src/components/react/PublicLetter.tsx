@@ -30,7 +30,7 @@ const height = width * aspect_ratio;
 
 const spring: AnimationOptions = { type: 'spring', mass: 1, stiffness: 170, damping: 20 };
 
-export function Mich() {
+export function PublicLetter() {
 	const [state, set] = useState<number>(0);
 	return (
 		<main className='text-base w-full '>
