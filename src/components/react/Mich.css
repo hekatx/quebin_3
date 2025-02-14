@@ -98,8 +98,8 @@
   color: var(--content-text);
   font-family: var(--font-geist);
   font-weight: 600;
-  padding: 0 0 initial;
-  max-width: 80%;
+  padding: 0;
+  max-width: 90%;
   font-size: 0.75rem /* 12px */;
   line-height: 1rem /* 16px */;
 }
