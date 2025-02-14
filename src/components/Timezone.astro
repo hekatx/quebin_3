@@ -21,7 +21,7 @@ const timeFormatter = new Intl.DateTimeFormat('en-US', {
 
 const date = dateFormatter.format(now);
 const time = timeFormatter.format(now);
-const getId = (id) => 'timezone-' + id + props.caption;
+const getId = (id: string) => 'timezone-' + id + props.caption;
 ---
 <figure>
   <article class="border py-3 px-4 rounded-md text-sm flex flex-col items-start justify-between gap-1">
