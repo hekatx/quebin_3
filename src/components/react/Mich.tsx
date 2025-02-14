@@ -245,14 +245,14 @@ function CardOne({ className, step }: { className: string; step: string }) {
 						variants={previewVariants}
 						className='flex flex-col justify-between h-full'
 					>
-						<motion.p className='card-content !text-2xs sm:!text-sm !text-stone-400 !font-normal'>
+						<motion.p className='card-content !text-2xs sm:!text-sm !text-stone-400 !font-normal !p-0'>
 							Para: Mich, mi morrita, mi amor, mi todo
 						</motion.p>
-						<motion.p className='card-content'>
+						<motion.p className='card-content !p-0'>
 							Hola! Recientemente me di cuenta que podrían pasar mil San Valentines, pero ninguno sería especial si no fuera
 							contigo.
 						</motion.p>
-						<motion.p className='card-content !text-2xs sm:!text-base pt-0 !text-stone-400'>
+						<motion.p className='card-content !text-2xs sm:!text-base pt-0 !text-stone-400 !p-0'>
 							(Presiona sobre la carta de nuevo para leer más)
 						</motion.p>
 					</motion.div>
